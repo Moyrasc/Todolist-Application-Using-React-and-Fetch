@@ -12,10 +12,17 @@ const TaskList = () =>{
                 setTaskOfList([...taskOfList,tasks]);
                 setTasks("")
             }else{
-                alert("Introduce tu tarea")
+                alert("Enter your task")
             }
 
         }
+    }
+    //Creo función para eliminar las tareas
+
+    const deleteTask = (indexToDelete) =>{
+        setTaskOfList(
+            taskOfList.filter((task, taskIndex)=> taskIndex !== indexToDelete)
+        )
     }
 
     return(
@@ -31,7 +38,10 @@ const TaskList = () =>{
         <ul>
         {taskOfList.map((item, i) => {
             return (
-                <li key={i}>{item}</li>
+                <li key={i}>
+                    <p>{item}</p>
+                    <button onClick={()=>deleteTask(i)}> x </button>
+                </li>
             )
         })}
         </ul>        
