@@ -1,5 +1,5 @@
 body {
-    max-height: 100vh;
+    min-height: 100vh;
     font-family: 'Dancing Script', cursive;
     background-image: url("https://i.imgur.com/xNvfjKR.png");
     background-repeat: no-repeat;

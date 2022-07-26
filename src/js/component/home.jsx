@@ -5,7 +5,7 @@ import TaskList from "./taskList.jsx";
 //create your first component
 const Home = () => {
 	return (
-		<div className="container-fluid col-5">
+		<div className="container-fluid col-5 col-sm-3">
 		<h1
 			className="text-center"
 			>
