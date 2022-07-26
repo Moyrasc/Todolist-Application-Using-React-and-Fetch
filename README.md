@@ -28,6 +28,7 @@ Esta plantilla es similar a create-react-app pero está pensada para los estudia
 
 La imagen del background la he creado yo misma ayudándome de la herramienta de diseño gráfico Canva.
 Se cumplen todos los puntos que se marcaban en las instrucciones, en el ejercicio he utilizado tanto entradas controladas como variables de estado.
+Tengo que trabajar aún algunos aspectos de responsividad para que se pueda ver correctamente en cualquier dispositivo.
 
 ## 💫 Pruébalo tu mismo
 https://todolist-using-react-snowy.vercel.app/
