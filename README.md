@@ -1,18 +1,6 @@
 # Todolist Using React
 <img src="src/img/PreviewTododefinitiva.png">
 
-## 📝 Instrucciones
-- Las tareas se agregan cuando el usuario presiona enter en el teclado.
-- El icono de eliminar solo se muestra cuando la tarea está activada.
-- El usuario puede agregar tantas tareas como desee.
-- Cuando no hayan tareas pendientes la lista debería decir "No hay tareas,    añadir tareas"
-- No hay forma de actualizar una tarea, el usuario tendrá que eliminarla y crearla de nuevo.
-
-## ✨ Sobre el Proyecto
-
-La imagen del background la he creado yo misma ayudándome de la herramienta de diseño gráfico Canva.
-Se cumplen todos los puntos que se marcaban en las instrucciones, en el ejercicio he utilizado tanto entradas controladas como variables de estado.
-
 ## Instala el paquete npm
 
 ```
@@ -28,3 +16,18 @@ For Windows, Mac, Linux or Gitpod, start the webpack server with live reload:
   </a>
 </p>
 Esta plantilla es similar a create-react-app pero está pensada para los estudiantes de la Academia 4Geeks.
+
+## 📝 Instrucciones
+- Las tareas se agregan cuando el usuario presiona enter en el teclado.
+- El icono de eliminar solo se muestra cuando la tarea está activada.
+- El usuario puede agregar tantas tareas como desee.
+- Cuando no hayan tareas pendientes la lista debería decir "No hay tareas,    añadir tareas"
+- No hay forma de actualizar una tarea, el usuario tendrá que eliminarla y crearla de nuevo.
+
+## ✨ Sobre el Proyecto
+
+La imagen del background la he creado yo misma ayudándome de la herramienta de diseño gráfico Canva.
+Se cumplen todos los puntos que se marcaban en las instrucciones, en el ejercicio he utilizado tanto entradas controladas como variables de estado.
+
+## 💫 Pruébalo tu mismo
+https://todolist-using-react-snowy.vercel.app/
