@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 
-const TaskList = () =>{
+const TaskList = () => {
 
-    const [tasks, setTasks] = useState ("");
+    const [tasks, setTasks] = useState("");
     const [taskOfList, setTaskOfList] = useState([]);
-    
+
 
     // Creo función manejadora de evento para que me guarde las tareas.
     const handleTask = (e) => {
-        if (e.key === "Enter"){
-            if(tasks !==""){
-                setTaskOfList([...taskOfList,tasks]);
+        if (e.key === "Enter") {
+            if (tasks !== "") {
+                setTaskOfList([...taskOfList, tasks]);
                 setTasks("")
-            }else{
+            } else {
                 alert("Enter your task")
             }
 
@@ -20,34 +20,37 @@ const TaskList = () =>{
     }
     //Creo función para eliminar las tareas
 
-    const deleteTask = (indexToDelete) =>{
+    const deleteTask = (indexToDelete) => {
         setTaskOfList(
-            taskOfList.filter((task, taskIndex)=> taskIndex !== indexToDelete)
+            taskOfList.filter((task, taskIndex) => taskIndex !== indexToDelete)
         )
     }
 
-    return(
+    return (
         <>
-        <input
-				type="text"
-                className="form-control mx-auto border text-dark fw-bolder mb-4"
-                placeholder="Enter a task"
-				aria-label="Username"
-                onChange={(e)=>setTasks(e.target.value)}
-                value={tasks}
-                onKeyDown={handleTask}/>
-        <ul>
-            {taskOfList.length === 0 && <p className="p-4">No task. Add new task</p>}
-            {taskOfList.map((item, i) => {
-            return (
-                <li key={i} className="d-flex justify-content-between text-dark item">
-                    
-                    {item}
-                    <p className ="delete"onClick={()=>deleteTask(i)}> x </p>
-                </li>
-            )
-        })}
-        </ul>        
+            <div className="row flex-wrap justify-content-center align-items-center gap-2 mb-5 mx-2">
+                <div className="col-5 col-sm-3  p-0"></div>
+                <input
+                    type="text"
+                    className="form-control text-dark fw-bolder mb-4 w-75"
+                    placeholder="Enter a task"
+                    aria-label="Username"
+                    onChange={(e) => setTasks(e.target.value)}
+                    value={tasks}
+                    onKeyDown={handleTask} />
+            </div>
+            <ul>
+                {taskOfList.length === 0 && <p className=" d-flex justify-content-center p-0 ">No task. Add new task</p>}
+                {taskOfList.map((item, i) => {
+                    return (
+                        <li key={i} className="d-flex justify-content-center text-dark item d-block">
+
+                            {item}
+                            <p className="delete m-0 " onClick={() => deleteTask(i)}> x </p>
+                        </li>
+                    )
+                })}
+            </ul>
         </>
     )
 }
