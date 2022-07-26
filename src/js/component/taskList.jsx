@@ -29,18 +29,20 @@ const TaskList = () =>{
         <>
         <input
 				type="text"
-				className="form-control col-6"
+				// className="form-control col-6"
+                className="form-control mx-auto border text-dark fw-bolder"
                 placeholder="Enter a task"
 				aria-label="Username"
                 onChange={(e)=>setTasks(e.target.value)}
                 value={tasks}
                 onKeyDown={handleTask}/>
         <ul>
+            {taskOfList.length === 0 && <p className="p-4">No task. Add new task</p>}
         {taskOfList.map((item, i) => {
             return (
-                <li key={i}>
-                    <p>{item}</p>
-                    <button onClick={()=>deleteTask(i)}> x </button>
+                <li key={i} className="d-flex justify-content-between text-dark p-2">
+                    {item}
+                    <p onClick={()=>deleteTask(i)}> X </p>
                 </li>
             )
         })}
