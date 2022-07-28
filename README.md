@@ -1,5 +1,6 @@
 # Todolist Using React
-<img src="/workspace/Todolist-Application-Using-React-and-Fetch/src/img/Preview todo API.png">
+
+<img src="src/img/Preview todo API.png">
 
 ## Instala el paquete npm
 
