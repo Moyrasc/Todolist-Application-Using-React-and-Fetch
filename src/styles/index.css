@@ -8,9 +8,10 @@ body {
 
 }
 
+
 p {
     text-align: center;
-    font-size: 32px;
+    font-size: 30px;
     margin-right: 20px;
     
 }
@@ -28,9 +29,12 @@ li {
 }
 .delete{
     opacity: 0;
-    padding: 0 50px 0px 40px;
+    padding: 5px 10px 0px 60px;
     text-align: center;
 }
 .item:hover .delete{
 opacity:1;
+}
+.deleteAllTask{
+    margin:0px 600px 0 600px;
 }
