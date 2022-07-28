@@ -3,12 +3,11 @@ import React, { useEffect, useState } from "react";
 const TaskList = () => {
   const [tasks, setTasks] = useState("");
   const [taskOfList, setTaskOfList] = useState([]);
- 
- 
-  // petición a la API
-     useEffect(() => {
+
+// petición a la API
+  useEffect(() => {
     const getTasks = async () => {
-      
+
       try {
         await fetch("https://assets.breatheco.de/apis/fake/todos/user/moyra")
           .then((response) => response.json())
@@ -41,13 +40,22 @@ const TaskList = () => {
     }
   }, [taskOfList]);
 
-  //fetch call para eliminar todas las tareas
+  // fetch call para eliminar todas las tareas 
+  // (La línea 46 a la 51 irían dentro de la función deleteAllTask 
+  // siguiendo las instrucciones especificas de la documentación de la API)
+
+  //   fetch("https://assets.breatheco.de/apis/fake/todos/user/moyra", {
+  //     method: "DELETE",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   });
   const deleteAllTask = async () => {
     setTaskOfList([]);
     try {
       fetch("https://assets.breatheco.de/apis/fake/todos/user/moyra", {
         method: "PUT",
-        body: JSON.stringify([{"label": "No task. Add new task", "done": false}]),
+        body: JSON.stringify([{ "label": "No task. Add new task", "done": false }]),
         headers: {
           "Content-Type": "application/json",
         },
@@ -99,13 +107,14 @@ const TaskList = () => {
           )}
           {taskOfList.map((item, i) => {
             return (
+              
               <li
                 key={i}
                 className="d-flex justify-content-center  text-dark item fw-bold"
               >
                 {item.label}
                 <p className="delete  text-end" onClick={() => deleteTask(i)}>
-                  
+
                   x
                 </p>
               </li>
