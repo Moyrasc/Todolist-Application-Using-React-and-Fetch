@@ -1,51 +1,52 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const TaskList = () => {
 
     const [tasks, setTasks] = useState("");
     const [taskOfList, setTaskOfList] = useState([]);
     
-    // fetch('https://assets.breatheco.de/apis/fake/todos/user/alesanchezr', {
-    //     method: "GET",
-        
-    //     headers: {
-    //       Accept: "application/json"
-    //     }
-    //   })
-    //   .then(resp => {
-    //     console.log(resp.ok); // Será true (verdad) si la respuesta es exitosa.
-    //     console.log(resp.status); // el código de estado = 200 o código = 400 etc.
-    //     // console.log(resp.text()); // Intentará devolver el resultado exacto como cadena (string)
-    //     return resp.json(); // (regresa una promesa) will try to parse the result as json as return a promise that you can .then for results
-    // })
-    // .then(data => {
-    //     //Aquí es donde debe comenzar tu código después de que finalice la búsqueda
-    //     console.log(data); //esto imprimirá en la consola el objeto exacto recibido del servidor
-    // })
-    // .catch(error => {
-    //     //manejo de errores
-    //     console.log(error);
-    // });
+    useEffect(()=>{
+        const getTasks = async () =>{
+            try {
+                await fetch('https://assets.breatheco.de/apis/fake/todos/user/moyra')
+                .then(response =>response.json())
+                .then(data => setTaskOfList(data))
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getTasks()
+    },[])
 
-    // Tengo que hacer que ls tareas se vean asi  ya que es el formato que admite JSON[
-    //     { label: "Make the bed", done: false },
-    //     { label: "Walk the dog", done: false },
-    //     { label: "Do the replits", done: false }
-    //   ]
-
+    // fetch call para sincronizar las tareas con el servidor cada vez que haya un cambio en la lista.
+    const putTasks = async () =>{
+        try {
+            fetch('https://assets.breatheco.de/apis/fake/todos/user/moyra', {
+      method: "PUT",
+      body: JSON.stringify(taskOfList),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    
 
 
     // Creo función manejadora de evento para que me guarde las tareas.
     const handleTask = (e) => {
         if (e.key === "Enter") {
             if (tasks !== "") {
-                setTaskOfList([...taskOfList, tasks]);
+                setTaskOfList([...taskOfList, {label:tasks}]);
                 setTasks("")
             } else {
                 alert("Enter your task")
             }
-
+            putTasks()
         }
+        
     }
     //Creo función para eliminar las tareas
 
@@ -74,7 +75,7 @@ const TaskList = () => {
                     return (
                         <li key={i} className="d-flex justify-content-center text-dark item d-block">
 
-                            {item}
+                            {item.label}
                             <p className="delete m-0 " onClick={() => deleteTask(i)}> x </p>
                         </li>
                     )
