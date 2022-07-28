@@ -3,20 +3,18 @@ import React, { useEffect, useState } from "react";
 const TaskList = () => {
   const [tasks, setTasks] = useState("");
   const [taskOfList, setTaskOfList] = useState([]);
-  const [loading, setLoading] = useState();
+ 
  
   // petición a la API
      useEffect(() => {
     const getTasks = async () => {
-      setLoading(true);
+      
       try {
         await fetch("https://assets.breatheco.de/apis/fake/todos/user/moyra")
           .then((response) => response.json())
           .then((data) => setTaskOfList(data));
       } catch (error) {
         console.log(error);
-      } finally {
-        setLoading(false);
       }
     };
     getTasks();
@@ -49,7 +47,7 @@ const TaskList = () => {
     try {
       fetch("https://assets.breatheco.de/apis/fake/todos/user/moyra", {
         method: "PUT",
-        body: JSON.stringify([taskOfList]),
+        body: JSON.stringify([{"label": "No task. Add new task", "done": false}]),
         headers: {
           "Content-Type": "application/json",
         },
@@ -103,12 +101,12 @@ const TaskList = () => {
             return (
               <li
                 key={i}
-                className="d-flex justify-content-center text-center text-dark item fw-bold"
+                className="d-flex justify-content-center  text-dark item fw-bold"
               >
                 {item.label}
                 <p className="delete  text-end" onClick={() => deleteTask(i)}>
-                  {" "}
-                  x{" "}
+                  
+                  x
                 </p>
               </li>
             );
