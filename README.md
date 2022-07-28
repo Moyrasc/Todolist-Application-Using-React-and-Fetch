@@ -1,5 +1,5 @@
 # Todolist Using React
-<img src="src/img/PreviewTododefinitiva.png">
+<img src="/workspace/Todolist-Application-Using-React-and-Fetch/src/img/Preview todo API.png">
 
 ## Instala el paquete npm
 
@@ -29,5 +29,9 @@ Esta plantilla es similar a create-react-app pero está pensada para los estudia
 ## ✨ Sobre el Proyecto
 
 El proyecto esta basado en el ejercicio anterior del TODO LIST pero en esta ocasión utilizando una API, he tenido que modificar algunas partes del código para poder hacer las peticiones con el formato correcto.
+1) En primer lugar cree el usuario para poder disponer de una nueva lista.
+2) Actualicé las tareas, hice varias peticiones para ver si funcionaba correctamente
+3) Eliminé las tareas en esta parte tuve algun problea ya que, según la documentación de la API debíamos usar DELETE, pero si lo hacía de esa manera no sé borraban las tareas sino que se eliminaba por completo el usuario, por otro lado tal y como esta diseñada para poder borrarlas debías pasarle el siguiente parametro [{ label: "Sample", done: false }] así que a pesar de estar borradas las tareas creadas por el usuario siempre aparecía esa.
+4)Se añade botón que eliminá todas las tareas a la vez.
 
-## 💫 Pruébalo tu mismo
+
