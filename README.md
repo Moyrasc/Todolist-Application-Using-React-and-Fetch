@@ -18,17 +18,16 @@ For Windows, Mac, Linux or Gitpod, start the webpack server with live reload:
 Esta plantilla es similar a create-react-app pero está pensada para los estudiantes de la Academia 4Geeks.
 
 ## 📝 Instrucciones
-- Las tareas se agregan cuando el usuario presiona enter en el teclado.
-- El icono de eliminar solo se muestra cuando la tarea está activada.
-- El usuario puede agregar tantas tareas como desee.
-- Cuando no hayan tareas pendientes la lista debería decir "No hay tareas,    añadir tareas"
-- No hay forma de actualizar una tarea, el usuario tendrá que eliminarla y crearla de nuevo.
+- Haz que tu TODO List se sincronice con la API de backend cada vez que se agregue o elimine una tarea.
+- Agregue un botón de limpieza de todas las tareas que eliminará toda la lista del servidor y actualizará la lista vacía en el front-end.
+
+- Hay 3 momentos críticos en la línea de tiempo de la aplicación (denominado tiempo de ejecución) para centrarse en su integración: 
+- Después de que la lista se carga vacía por primera vez (componentDidMount): debes obtener (GET) los datos de la API y actualizar las tareas cuando la información finalmente llegue. 
+- Cuando se agrega una nueva tarea: debes PONER (PUT) la nueva lista en el servidor. 
+- Cuando se elimina una tarea: Debes PONER (PUT) la nueva lista en el servidor.
 
 ## ✨ Sobre el Proyecto
 
-La imagen del background la he creado yo misma ayudándome de la herramienta de diseño gráfico Canva.
-Se cumplen todos los puntos que se marcaban en las instrucciones, en el ejercicio he utilizado tanto entradas controladas como variables de estado.
-Tengo que trabajar aún algunos aspectos de responsividad para que se pueda ver correctamente en cualquier dispositivo.
+El proyecto esta basado en el ejercicio anterior del TODO LIST pero en esta ocasión utilizando una API, he tenido que modificar algunas partes del código para poder hacer las peticiones con el formato correcto.
 
 ## 💫 Pruébalo tu mismo
-https://todolist-using-react-snowy.vercel.app/
