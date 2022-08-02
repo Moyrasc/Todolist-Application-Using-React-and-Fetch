@@ -41,7 +41,7 @@ const TaskList = () => {
   }, [taskOfList]);
 
   // fetch call para eliminar todas las tareas 
-  // (La línea 46 a la 51 irían dentro de la función deleteAllTask 
+  // (La línea 47 a la 63 irían dentro de la función deleteAllTask 
   // siguiendo las instrucciones especificas de la documentación de la API)
 
   //   fetch("https://assets.breatheco.de/apis/fake/todos/user/moyra", {
@@ -49,7 +49,19 @@ const TaskList = () => {
   //     headers: {
   //       "Content-Type": "application/json",
   //     },
-  //   });
+  //   })    }).then(() => {
+  //     fetch("https://assets.breatheco.de/apis/fake/todos/user/KarlyMakowski", {
+  //       method: "POST",
+  //       body: JSON.stringify([]),
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     })
+  //     .then((resp) => resp.json())
+  //     .then((data) => {if(data.result === "ok") {setTaskOfList([])}});
+  //   })
+  // };
+  
   const deleteAllTask = async () => {
     setTaskOfList([]);
     try {
@@ -59,7 +71,7 @@ const TaskList = () => {
         headers: {
           "Content-Type": "application/json",
         },
-      });
+      }).then((data) => {if(data.result === "ok") {setTaskOfList([])}});
     } catch (error) {
       console.log(error);
     }
